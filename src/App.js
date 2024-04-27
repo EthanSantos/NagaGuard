@@ -24,7 +24,7 @@ function App() {
   else if (display === "profile") {
     return(
       <div>
-        <Profile userId = {userId}/>
+        <Profile userId = {userId} userType = {userType}/>
       </div>
     )
   }

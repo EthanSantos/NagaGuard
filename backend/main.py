@@ -47,6 +47,13 @@ def createUser(username, password, db):
             insertLogin = "INSERT INTO " + db + "(username, password) VALUES (%s, %s);"
 
             cursor.execute(insertLogin, (username, password))
+            
+            if db  == "patient_login":
+                insertStats = """
+                    INSERT INTO patient_info(person_id) 
+                    SELECT person_id FROM patient_login WHERE username = %s AND password = %s;
+                """
+                cursor.execute(insertStats, (username, password))
             msg = "Created account."
         else:
             print("User already exists.")
@@ -95,6 +102,31 @@ def checkUser(username, password, db):
 
     return msg
 
+def updateStats(id, firstName, lastName, height, weight, gender, dob):
+    msg = "Error updating stats."
+    try:
+        connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
+        cursor = connection.cursor(buffered=True)
+
+        query = "UPDATE patient_info SET firstName = %s, lastName = %s, height = %s, weight = %s, gender = %s, dob = %s WHERE person_id = %s;"
+
+        cursor.execute(query, (firstName, lastName, height, weight, gender, dob, id))
+
+        msg = "Updated stats."
+
+    except mysql.connector.Error as error:
+        print("Error occured: ", error)
+
+    finally:
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
+    return msg
+    
+
 @app.route('/Patient-login', methods=['POST'])
 def patient_login():
     data = request.json 
@@ -123,6 +155,22 @@ def patient_signup():
         id = getUserId(username, "patient_login")
 
     response = {'message': msg, 'username': username, 'password': password, 'id': id}
+    return jsonify(response), 200
+
+@app.route('/Patient-profile', methods=['POST'])
+def patient_profile():
+    data = request.json  
+    id = data.get('id')
+    firstName = data.get('firstName')
+    lastName = data.get('lastName')
+    height = data.get('height')
+    weight = data.get('weight')
+    gender = data.get('gender')
+    dob = data.get('dob')
+
+    msg = updateStats(id, firstName, lastName, height, weight, gender, dob)
+
+    response = {'message': msg, 'id': id}
     return jsonify(response), 200
 
 @app.route('/Doctor-login', methods=['POST'])

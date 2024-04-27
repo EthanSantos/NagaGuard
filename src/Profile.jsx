@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 
-const Profile = ( {userId} ) => {
+
+const Profile = ({ userId, userType }) => {
 
     const [info, setInfo] = useState({
         id: userId,
@@ -15,6 +17,13 @@ const Profile = ( {userId} ) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(info)
+
+        try {
+            const response = await axios.post('http://localhost:5000/' + userType + '-profile', info);
+            console.log(response.data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     const handleChange = (e) => {
