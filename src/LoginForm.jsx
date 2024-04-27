@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Login from './Login'
 import Signup from './Signup'
 
-const LoginForm = ({ display, setDisplay }) => {
+const LoginForm = ({ display, setDisplay, setUserId, userType }) => {
     const [errorMsg, setErrorMsg] = useState()
 
 
@@ -15,15 +15,15 @@ const LoginForm = ({ display, setDisplay }) => {
     if (display === "login") {
         return (
             <div>
-                <Login errorMsg={errorMsg} setErrorMsg={setErrorMsg} display={display} setDisplay={setDisplay} handleClick={handleClick} />
+                <Login errorMsg={errorMsg} setErrorMsg={setErrorMsg} setDisplay={setDisplay} handleClick={handleClick} setUserId={setUserId} userType={userType} />
             </div>
 
         )
     }
-    else {
+    else{
         return (
             <div>
-                <Signup errorMsg={errorMsg} setErrorMsg={setErrorMsg} display={display} setDisplay={setDisplay} handleClick={handleClick} />
+                <Signup errorMsg={errorMsg} setErrorMsg={setErrorMsg} setDisplay={setDisplay} handleClick={handleClick} setUserId={setUserId} userType={userType} />
             </div>
         )
     }

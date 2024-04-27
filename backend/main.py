@@ -6,17 +6,44 @@ import mysql.connector
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}) # allows localhost to access the flask server
 
+def getUserId(username):
+    id = None
+    try:
+        connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
+        cursor = connection.cursor(buffered=True)
+
+        query = """
+            SELECT person_id from users_login WHERE username = %s
+        """
+
+        cursor.execute(query, (username,))
+        valid = cursor.fetchall()
+
+        id = valid[0][0]
+
+    except mysql.connector.Error as error:
+        print("Error occured: ", error)
+
+    finally:
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
+    return id
+
 def createUser(username, password):
     msg = "User already exists."
     try:
         connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
         cursor = connection.cursor(buffered=True)
 
-        validCheck = """
+        query = """
             SELECT person_id from users_login WHERE username = %s
         """
 
-        cursor.execute(validCheck, (username,))
+        cursor.execute(query, (username,))
         valid = cursor.fetchall()
 
         if not valid:
@@ -50,11 +77,11 @@ def checkUser(username, password):
         connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
         cursor = connection.cursor(buffered=True)
 
-        passCheck = """
+        query = """
             SELECT person_id FROM users_login WHERE username = %s AND password = %s
         """
 
-        cursor.execute(passCheck, (username, password))
+        cursor.execute(query, (username, password))
         valid = cursor.fetchall()
 
         if valid:
@@ -78,14 +105,17 @@ def checkUser(username, password):
 
 @app.route('/login-form', methods=['POST'])
 def login_form():
-    data = request.json  # This will contain your form data
-    # Do something with the data, for example:
+    data = request.json 
     username = data.get('username')
     password = data.get('password')
 
     msg = checkUser(username, password)
 
-    response = {'message': msg, 'username': username, 'password': password}
+    id = None
+    if msg == "Login successful.":
+        id = getUserId(username)
+
+    response = {'message': msg, 'username': username, 'password': password, 'id': id}
     return jsonify(response), 200
 
 @app.route('/signup-form', methods=['POST'])
@@ -93,10 +123,14 @@ def signup_form():
     data = request.json  
     username = data.get('username')
     password = data.get('password')
-    
-    msg = createUser(username, password)
-    response = {'message': msg, 'username': username, 'password': password}
 
+    msg = createUser(username, password)
+
+    id = None
+    if msg == "Created account.":
+        id = getUserId(username)
+
+    response = {'message': msg, 'username': username, 'password': password, 'id': id}
     return jsonify(response), 200
 
 if __name__ == '__main__':
