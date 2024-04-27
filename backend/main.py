@@ -6,15 +6,13 @@ import mysql.connector
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}}) # allows localhost to access the flask server
 
-def getUserId(username):
+def getUserId(username, db):
     id = None
     try:
         connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
         cursor = connection.cursor(buffered=True)
 
-        query = """
-            SELECT person_id from users_login WHERE username = %s
-        """
+        query = "SELECT person_id FROM " + db + " WHERE username = %s"
 
         cursor.execute(query, (username,))
         valid = cursor.fetchall()
@@ -33,24 +31,20 @@ def getUserId(username):
 
     return id
 
-def createUser(username, password):
+def createUser(username, password, db):
     msg = "User already exists."
     try:
         connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
         cursor = connection.cursor(buffered=True)
 
-        query = """
-            SELECT person_id from users_login WHERE username = %s
-        """
+        query = "SELECT person_id from " + db + " WHERE username = %s "
 
         cursor.execute(query, (username,))
         valid = cursor.fetchall()
 
         if not valid:
             print("Valid")
-            insertLogin = """
-                INSERT INTO users_login(username, password) VALUES (%s, %s);
-            """
+            insertLogin = "INSERT INTO " + db + "(username, password) VALUES (%s, %s);"
 
             cursor.execute(insertLogin, (username, password))
             msg = "Created account."
@@ -71,15 +65,13 @@ def createUser(username, password):
 
     return msg
 
-def checkUser(username, password):
+def checkUser(username, password, db):
     msg = "Incorrect username/password."
     try:
         connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
         cursor = connection.cursor(buffered=True)
 
-        query = """
-            SELECT person_id FROM users_login WHERE username = %s AND password = %s
-        """
+        query = "SELECT person_id FROM " + db + " WHERE username = %s AND password = %s"
 
         cursor.execute(query, (username, password))
         valid = cursor.fetchall()
@@ -103,32 +95,62 @@ def checkUser(username, password):
 
     return msg
 
-@app.route('/login-form', methods=['POST'])
-def login_form():
+@app.route('/Patient-login', methods=['POST'])
+def patient_login():
     data = request.json 
     username = data.get('username')
     password = data.get('password')
 
-    msg = checkUser(username, password)
+    msg = checkUser(username, password, "patient_login")
 
     id = None
     if msg == "Login successful.":
-        id = getUserId(username)
+        id = getUserId(username, "patient_login")
 
     response = {'message': msg, 'username': username, 'password': password, 'id': id}
     return jsonify(response), 200
 
-@app.route('/signup-form', methods=['POST'])
-def signup_form():
+@app.route('/Patient-signup', methods=['POST'])
+def patient_signup():
     data = request.json  
     username = data.get('username')
     password = data.get('password')
 
-    msg = createUser(username, password)
+    msg = createUser(username, password, "patient_login")
 
     id = None
     if msg == "Created account.":
-        id = getUserId(username)
+        id = getUserId(username, "patient_login")
+
+    response = {'message': msg, 'username': username, 'password': password, 'id': id}
+    return jsonify(response), 200
+
+@app.route('/Doctor-login', methods=['POST'])
+def doctor_login():
+    data = request.json 
+    username = data.get('username')
+    password = data.get('password')
+
+    msg = checkUser(username, password, "doctor_login")
+
+    id = None
+    if msg == "Login successful.":
+        id = getUserId(username, "doctor_login")
+
+    response = {'message': msg, 'username': username, 'password': password, 'id': id}
+    return jsonify(response), 200
+
+@app.route('/Doctor-signup', methods=['POST'])
+def doctor_signup():
+    data = request.json  
+    username = data.get('username')
+    password = data.get('password')
+
+    msg = createUser(username, password, "doctor_login")
+
+    id = None
+    if msg == "Created account.":
+        id = getUserId(username, "doctor_login")
 
     response = {'message': msg, 'username': username, 'password': password, 'id': id}
     return jsonify(response), 200

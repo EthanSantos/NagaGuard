@@ -3,6 +3,7 @@ import LoginForm from './LoginForm';
 import Profile from './Profile';
 import Home from './Home';
 import Popup from './Popup';
+import DoctorPage from './DoctorPage';
 
 function App() {
 
@@ -24,6 +25,13 @@ function App() {
     return(
       <div>
         <Profile userId = {userId}/>
+      </div>
+    )
+  }
+  else if (display === "doctor_page"){
+    return(
+      <div>
+        <DoctorPage/>
       </div>
     )
   }

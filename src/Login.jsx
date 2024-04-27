@@ -21,14 +21,19 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
         console.log(info)
 
         try {
-            const response = await axios.post('http://localhost:5000/login-form', info);
+            const response = await axios.post('http://localhost:5000/' + userType + '-login', info);
             console.log(response.data); // Handle backend response
             setErrorMsg(response.data.message)
 
             if (response.data.message === "Login successful.") {
                 console.log("login successful")
-                setDisplay("profile")
                 setUserId(response.data.id)
+                if (userType === "Doctor") {
+                    setDisplay("doctor_page")
+                }
+                else {
+                    setDisplay("profile")
+                }
             }
         } catch (error) {
             console.error('Error:', error);

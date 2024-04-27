@@ -21,13 +21,18 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
         console.log(info)
 
         try {
-            const response = await axios.post('http://localhost:5000/signup-form', info);
+            const response = await axios.post('http://localhost:5000/' + userType + '-signup', info);
             console.log(response.data); // Handle backend response
             setErrorMsg(response.data.message)
 
             if (response.data.message === "Created account.") {
                 console.log("Account created")
-                setDisplay("profile")
+                if (userType === "Doctor"){
+                    setDisplay("doctor_page")
+                }
+                else{
+                    setDisplay("profile")
+                }
                 setUserId(response.data.id)
             }
 
