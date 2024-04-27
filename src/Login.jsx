@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import axios from 'axios';
 
-const Login = ({errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userType}) => {
+const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userType }) => {
 
     const [info, setInfo] = useState({
         username: "",
@@ -35,6 +35,10 @@ const Login = ({errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userT
         }
     }
 
+    const goBack = async (e) => {
+        setDisplay("popup")
+    }
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -44,7 +48,8 @@ const Login = ({errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userT
                 <button type="submit">Login</button>
                 <p>{errorMsg}</p>
             </form>
-            <p>Don't have an account? <a href="/#"onClick={handleClick}>Sign up</a></p>
+            <p>Don't have an account? <a href="/#" onClick={handleClick}>Sign up</a></p>
+            <button onClick={goBack}>Back</button>
         </div >
     )
 }

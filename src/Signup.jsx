@@ -36,6 +36,11 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
         }
     }
 
+    const goBack = async (e) => {
+        setDisplay("popup")
+    }
+
+
     if (userType === "Doctor") {
         return (
             <div>
@@ -48,6 +53,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
                     <p>{errorMsg}</p>
                 </form>
                 <p>Already have an account? <a href="/#" onClick={handleClick}>Login</a></p>
+                <button onClick={goBack}>Back</button>
             </div >
         )
     }
@@ -62,6 +68,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
                     <p>{errorMsg}</p>
                 </form>
                 <p>Already have an account? <a href="/#" onClick={handleClick}>Login</a></p>
+                <button onClick={goBack}>Back</button>
             </div >
         )
 
