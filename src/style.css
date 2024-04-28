@@ -27,16 +27,22 @@
     margin: 10px 10px 10px 10px;
     cursor: pointer;
 }
-
 .button1:hover{
     background-color: #6290ac;
 }
-
 .signUp{
     text-decoration: none;
     color: #33576E;
 }
-
 .signUp:hover{
+    color: #A0A742;
+}
+
+/* signup file */
+.logIn{
+    text-decoration: none;
+    color: #33576E;
+}
+.logIn:hover{
     color: #A0A742;
 }

@@ -49,7 +49,7 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
         <div className = "container">
             <div className = "row justify-content-center" style={{marginTop: '8%'}}>
                 <div className = "col-md-6">
-                    <img src= {welcome} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}></img>
+                    <img src= {welcome} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
                 </div>
             </div>
 

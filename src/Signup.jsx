@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import axios from 'axios';
+import welcomeback from './pics/welcomeBack.PNG';
 
 const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userType }) => {
 
@@ -48,33 +49,60 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
 
     if (userType === "Doctor") {
         return (
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h3>Doctor Signup</h3>
-                    <h3>Medical ID: </h3> <input type="text" name="medicalID" onChange={handleChange} />
-                    <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
-                    <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                    <button type="submit">Signup</button>
-                    <p>{errorMsg}</p>
-                </form>
-                <p>Already have an account? <a href="/#" onClick={handleClick}>Login</a></p>
-                <button onClick={goBack}>Back</button>
+            <div className = "container">
+                <div className = "row justify-content-center" style = {{marginTop: '8%'}}>
+                    <div className = "col-md-6">
+                        <img src = {welcomeback} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                    </div>
+                </div>
+
+                <div className = "row justify-content-center">
+                    <div className = "col-md-6 text-center">
+                        <form onSubmit={handleSubmit}>
+                            <h3>Signup</h3>
+                            <h3>Medical ID: </h3> <input type="text" name="medicalID" onChange={handleChange} />
+                            <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
+                            <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
+                            
+                            <div className = "logInBut">
+                                <button type="submit" className='button1'>Signup</button>
+                            </div>
+                            
+                            <p>{errorMsg}</p>
+                        </form>
+                        <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
+                        <button onClick={goBack} className='button1'>Back</button>
+                    </div>
+                </div>
             </div >
         )
     }
     else if (userType === "Patient") {
         return (
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <h3>Patient Signup</h3>
-                    <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
-                    <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                    <button type="submit">Signup</button>
-                    <p>{errorMsg}</p>
-                </form>
-                <p>Already have an account? <a href="/#" onClick={handleClick}>Login</a></p>
-                <button onClick={goBack}>Back</button>
-            </div >
+            <div className = "container">
+                <div className = "row justify-content-center" style = {{marginTop: '8%'}}>
+                    <div className = "col-md-6">
+                        <img src = {welcomeback} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                    </div>
+                </div>
+
+                <div className = "row justify-content-center">
+                    <div className = "col-md-6 text-center">
+                        <form onSubmit={handleSubmit}>
+                            <h3>Signup</h3>
+                            <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
+                            <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
+                            <div className = "logInBut">
+                                <button type="submit" className='button1'>Signup</button>
+                            </div>
+                            <p>{errorMsg}</p>
+                        </form>
+                    <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
+                    <button onClick={goBack} className='button1'>Back</button>
+                    </div>
+                </div >
+            </div>
+            
         )
 
     }

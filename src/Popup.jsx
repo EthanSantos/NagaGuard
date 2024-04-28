@@ -1,7 +1,6 @@
 import React from 'react'
 import singDoc from './pics/singDoc.PNG';
 import pRight from './pics/pRight.png';
-import './style.css'
 
 const Popup = ({ setDisplay, setUserType }) => {
     const loadDoctor = async (e) => {
