@@ -20,6 +20,7 @@ const PatientRecords = ({ setDisplay, userId }) => {
     }
 
     useEffect(() => {
+        // eslint-disable-next-line
         loadRecords(); // Load records when userId changes
     }, [userId]);
 
