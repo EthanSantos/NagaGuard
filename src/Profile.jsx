@@ -35,10 +35,11 @@ const Profile = ({ userId, userType }) => {
 
     return (
         <div>
-            <div class = "container d-flex flex-column align-items-center justify-content-center" style = {{marginTop:'5%', textAlign: 'center'}}>
-                <div class = "content"> 
-                    <h5> my </h5>
-                    <h3> Profile </h3>
+            <div className = "container d-flex flex-column align-items-center justify-content-center" style = {{marginTop:'5%', textAlign: 'left'}}>
+                <div className = "content"> 
+                    <div className = "title" style = {{textAlign: 'center'}}>
+                        <h3> my Profile </h3>
+                    </div>
 
                     <form onSubmit={handleSubmit}>
                         <h4>First Name: </h4> <input type="text" name="firstName" onChange={handleChange} className = "profileInp"/>
