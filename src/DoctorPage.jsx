@@ -12,7 +12,6 @@ const DoctorPage = ({ userType }) => {
     const handleChange = (e) => {
         setPatientId(e.target.value)
     }
-
     
     const loadRecords = async () => {
         console.log("loading records")
