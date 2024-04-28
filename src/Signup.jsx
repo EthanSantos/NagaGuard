@@ -59,7 +59,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
                 <div className = "row justify-content-center">
                     <div className = "col-md-6 text-center">
                         <form onSubmit={handleSubmit}>
-                            <h3>Signup</h3>
+                            <h3>{userType} Sign Up</h3>
                             <h3>Medical ID: </h3> <input type="text" name="medicalID" onChange={handleChange} />
                             <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
                             <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
@@ -89,7 +89,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
                 <div className = "row justify-content-center">
                     <div className = "col-md-6 text-center">
                         <form onSubmit={handleSubmit}>
-                            <h3>Signup</h3>
+                            <h3>{userType} Sign Up</h3>
                             <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
                             <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
                             <div className = "logInBut">
