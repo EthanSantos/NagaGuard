@@ -37,24 +37,24 @@ const Profile = ({ userId, userType, setDisplay }) => {
 
     return (
         <div>
-            <div className = "container d-flex flex-column align-items-center justify-content-center" style = {{marginTop:'5%', textAlign: 'left'}}>
-                <div className = "content"> 
-                    <div className = "title" style = {{textAlign: 'center'}}>
-                        <img src = {myProf} alt = "profile" className="ing-fluid" style = {{maxWidth: '50%', height:'auto'}}/>
+            <div className="container d-flex flex-column align-items-center justify-content-center" style={{ marginTop: '5%', textAlign: 'left' }}>
+                <div className="content">
+                    <div className="title" style={{ textAlign: 'center' }}>
+                        <img src={myProf} alt="profile" className="ing-fluid" style={{ maxWidth: '50%', height: 'auto' }} />
                     </div>
 
-                    <form onSubmit={handleSubmit} style = {{textAlign: 'center', justifyContent:'center'}}>
-                        <h4>First Name: </h4> <input type="text" name="firstName" onChange={handleChange} className = "profileInp"/>
-                        <h4>Last Name: </h4> <input type="text" name="lastName" onChange={handleChange} className = "profileInp"/>
-                        <h4>Height: </h4> <input type="text" name="height" onChange={handleChange} className = "profileInp"/>
-                        <h4>Weight: </h4> <input type="text" name="weight" onChange={handleChange} className = "profileInp"/>
-                        <h4>Gender: </h4> <input type="text" name="gender" onChange={handleChange} className = "profileInp"/>
-                        <h4>Date of Birth: </h4> <input type="date" name="dob" onChange={handleChange} className = "profileInp"/>
-                        <div className = "submitBut">
+                    <form onSubmit={handleSubmit} style={{ textAlign: 'center', justifyContent: 'center' }}>
+                        <h4>First Name: </h4> <input type="text" name="firstName" onChange={handleChange} className="profileInp" />
+                        <h4>Last Name: </h4> <input type="text" name="lastName" onChange={handleChange} className="profileInp" />
+                        <h4>Height: </h4> <input type="text" name="height" onChange={handleChange} className="profileInp" />
+                        <h4>Weight: </h4> <input type="text" name="weight" onChange={handleChange} className="profileInp" />
+                        <h4>Gender: </h4> <input type="text" name="gender" onChange={handleChange} className="profileInp" />
+                        <h4>Date of Birth: </h4> <input type="date" name="dob" onChange={handleChange} className="profileInp" />
+                        <div className="submitBut">
                             <button type="submit" className="subBut">Submit</button>
                         </div>
-                            <button onClick={() => setDisplay("login")} className = 'subBut'>Logout</button>
-                        
+                        <button onClick={() => setDisplay("patient_page")} className='subBut'>Back</button>
+
                     </form>
                 </div>
             </div>

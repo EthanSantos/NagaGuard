@@ -56,11 +56,7 @@ const PatientInfo = ({ user, index, userType, loadRecords, medicalRecords }) => 
     
             // Format each medical code and description pair with a <br> tag for line breaks
             const dataFormatted = Object.entries(parsedData)
-                // .map(([key, value]) => `\n\n\n- Medical Code: ${key} Description: ${value}`)
-                
-                    .map(([key, value]) => `\n- Medical Code: ${key}\n Description: ${value}`);
-                
-                // .replace(/\n/g, '<br>');
+                    .map(([key, value]) => `\nMedical Code: ${key}\n Description: ${value}`);
                 
             // Concatenate the formatted data with the existing notes
             const updatedRecord = { ...record };
@@ -90,7 +86,7 @@ const PatientInfo = ({ user, index, userType, loadRecords, medicalRecords }) => 
             <p>Date of Birth: {user.dob}</p>
             <p>Gender: {user.gender}</p>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="notes" value={record.notes} onChange={handleChange} className='inputPatient2'/>
+                <textarea type="text" name="notes" value={record.notes} onChange={handleChange} className='inputPatient3'/>
                 <button type="submit" className = "inputPatient2">Add record</button>
                 <p>{error}</p>
             </form>
