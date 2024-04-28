@@ -1,15 +1,27 @@
+/* font */
+.body {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
 /* home file */
 .button {
     background-color: #A0A742;
     color: #FFF;
     border-radius: 10px;
-    border: 1px solid #A0A742;
+    border: none;
     padding: 10px 20px;
     cursor: pointer;
-}
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    }
+
 .button:hover{
     background-color: #BBCF9B;
-    border-color: #BBCF9B;
+    color: #404c2d;
 }
 
 /* popup file */
@@ -17,7 +29,6 @@
     background-color: #C7DBE2;
 }
 
-/* login file */
 .button1 {
     background-color: #33576E;
     color: #FFF;
@@ -26,23 +37,69 @@
     padding: 10px 20px 10px 20px;
     margin: 10px 10px 10px 10px;
     cursor: pointer;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
 }
+
 .button1:hover{
     background-color: #6290ac;
 }
+
 .signUp{
     text-decoration: none;
     color: #33576E;
 }
+
 .signUp:hover{
     color: #A0A742;
 }
 
-/* signup file */
+/* logIn + signUp*/
+.fontStyle{
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #C7DBE2;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+}
+
+.fontStyle h3{
+    font-size: 30px;
+}
+
+.fontStyle h2{
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+.fontStyle p{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.insertInp{
+    background-color: #A0A742;
+    color: #FFF;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+}
+
 .logIn{
     text-decoration: none;
     color: #33576E;
 }
+
 .logIn:hover{
     color: #A0A742;
 }

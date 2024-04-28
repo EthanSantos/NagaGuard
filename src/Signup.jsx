@@ -58,20 +58,21 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
 
                 <div className = "row justify-content-center">
                     <div className = "col-md-6 text-center">
-                        <form onSubmit={handleSubmit}>
-                            <h3>{userType} Sign Up</h3>
-                            <h3>Medical ID: </h3> <input type="text" name="medicalID" onChange={handleChange} />
-                            <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
-                            <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                            
-                            <div className = "logInBut">
-                                <button type="submit" className='button1'>Signup</button>
-                            </div>
-                            
-                            <p>{errorMsg}</p>
-                        </form>
-                        <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
-                        <button onClick={goBack} className='button1'>Back</button>
+                        <div className = "fontStyle">
+                            <form onSubmit={handleSubmit}>
+                                <h3>{userType} Sign Up</h3>
+                                <h2>Medical ID: </h2> <input type="text" name="medicalID" onChange={handleChange} className="insertInp"/>
+                                <h2>Username: </h2> <input type="text" name="username" onChange={handleChange} className="insertInp"/>
+                                <h2>Password: </h2> <input type="password" name="password" onChange={handleChange} className="insertInp"/>
+                                
+                                <div className = "logInBut">
+                                    <button type="submit" className='button1'>Signup</button>
+                                </div>
+                                <p>{errorMsg}</p>
+                            </form>
+                            <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
+                            <button onClick={goBack} className='button1'>Back</button>
+                        </div>
                     </div>
                 </div>
             </div >
@@ -88,17 +89,19 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
 
                 <div className = "row justify-content-center">
                     <div className = "col-md-6 text-center">
-                        <form onSubmit={handleSubmit}>
-                            <h3>{userType} Sign Up</h3>
-                            <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
-                            <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                            <div className = "logInBut">
-                                <button type="submit" className='button1'>Signup</button>
-                            </div>
-                            <p>{errorMsg}</p>
-                        </form>
-                    <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
-                    <button onClick={goBack} className='button1'>Back</button>
+                        <div class = "fontStyle">
+                            <form onSubmit={handleSubmit}>
+                                <h3>{userType} Sign Up</h3>
+                                <h2>Username: </h2> <input type="text" name="username" onChange={handleChange} className="insertInp"/>
+                                <h2>Password: </h2> <input type="password" name="password" onChange={handleChange} className="insertInp"/>
+                                <div className = "logInBut">
+                                    <button type="submit" className='button1'>Signup</button>
+                                </div>
+                                <p>{errorMsg}</p>
+                            </form>
+                            <p>Already have an account? <a href="/#" onClick={handleClick} className='logIn'>Login</a></p>
+                            <button onClick={goBack} className='button1'>Back</button>
+                        </div>
                     </div>
                 </div >
             </div>

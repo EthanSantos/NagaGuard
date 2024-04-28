@@ -49,23 +49,25 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
         <div className = "container">
             <div className = "row justify-content-center" style={{marginTop: '8%'}}>
                 <div className = "col-md-6">
-                    <img src= {welcome} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                    <img src= {welcome} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}></img>
                 </div>
             </div>
 
             <div className = "row justify-content-center"> 
                 <div className = "col-md-6 text-center"> 
-                    <form onSubmit={handleSubmit}>
-                        <h3>{userType} Login</h3>
-                        <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
-                        <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                        <div className = "logInBut">
-                            <button type="submit" className='button1'>Login</button>
-                        </div>
-                        <p>{errorMsg}</p>
-                    </form>
-                    <p>Don't have an account? <a href="/#" onClick={handleClick} className='signUp'>Sign up</a></p>
-                    <button onClick={goBack} className='button1'>Back</button>
+                    <div className = "fontStyle" >
+                        <form onSubmit={handleSubmit}>
+                            <h3>{userType} Login</h3>
+                            <h2>Username: </h2> <input type="text" name="username" onChange={handleChange} className="insertInp"/>
+                            <h2>Password: </h2> <input type="password" name="password" onChange={handleChange} className="insertInp"/>
+                            <div className = "logInBut">
+                                <button type="submit" className='button1'>Login</button>
+                            </div>
+                            <p>{errorMsg}</p>
+                        </form>
+                        <p>Don't have an account? <a href="/#" onClick={handleClick} className='signUp'>Sign up</a></p>
+                        <button onClick={goBack} className='button1'>Back</button>
+                    </div>
                 </div>
             </div>
         </div >

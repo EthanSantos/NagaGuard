@@ -27,7 +27,7 @@ const Home = ({ setDisplay }) => {
 
             <div className = "row justify-content-center"> 
                 <div className = "col-md-6 text-center"> 
-                    <button type = "submit" onClick={onClick} className="button">Click here to start</button>
+                    <button type = "submit" onClick={onClick} className="button">START</button>
                 </div>
             </div>
                 
