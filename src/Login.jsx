@@ -59,7 +59,9 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
                         <h3>{userType} Login</h3>
                         <h3>Username: </h3> <input type="text" name="username" onChange={handleChange} />
                         <h3>Password: </h3> <input type="password" name="password" onChange={handleChange} />
-                        <button type="submit" className='button1'>Login</button>
+                        <div className = "logInBut">
+                            <button type="submit" className='button1'>Login</button>
+                        </div>
                         <p>{errorMsg}</p>
                     </form>
                     <p>Don't have an account? <a href="/#" onClick={handleClick} className='signUp'>Sign up</a></p>
