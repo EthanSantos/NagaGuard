@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import medRec from './pics/medRec.png';
 
 const PatientRecords = ({ setDisplay, userId }) => {
     const [medicalRecords, setMedicalRecords] = useState([]);
@@ -25,15 +26,31 @@ const PatientRecords = ({ setDisplay, userId }) => {
     }, [userId]);
 
     return (
-        <div>
+        <div className="container d-flex flex-column justify-content-center align-items-center">
+            <img src = {medRec} alt = 'medicalRecords' className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
             {medicalRecords.length === 0 ? (
-                <p>No medical records found</p>
+                <div className="medRec">
+                    <p>No medical records found</p>
+                </div>
             ) : (
-                medicalRecords.map((record, index) => (
-                    <p key={index}>{record}</p>
-                ))
+                // <div className='pRecords'>
+                //     medicalRecords.map((record, index) => (
+                //     <p key={index}>{record}</p>
+                // ))
+                // </div>
+                <div className='pRecords'>
+                    {medicalRecords.map((record, index) => (
+                        <div key={index} className="recordItem">
+                            <p className="recordIndex">Record #{index+1}</p>
+                            <p className="recordContent">{record}</p>
+                        </div>
+                    ))}
+                </div>
+                
+
             )}
-            <button onClick={() => setDisplay("patient_page")}>Back</button>
+            {/* <button onClick={goBack} className='button1'>Back</button> */}
+            <button onClick={() => setDisplay("patient_page")} className='button1'>Back</button>
         </div>
     )
 }

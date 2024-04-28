@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import axios from 'axios';
-import welcome from './pics/welcome.PNG';
+import welcomeback from './pics/welcomeBack.PNG';
 
 const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userType }) => {
 
@@ -49,7 +49,7 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
         <div className = "container">
             <div className = "row justify-content-center" style={{marginTop: '8%'}}>
                 <div className = "col-md-6">
-                    <img src= {welcome} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}></img>
+                    <img src= {welcomeback} alt = "Logo" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
                 </div>
             </div>
 

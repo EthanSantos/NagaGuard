@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import PatientInfo from './PatientInfo';
+import pInfo from './pics/pInfo.png';
 
 const DoctorPage = ({ userType }) => {
 
@@ -56,18 +57,22 @@ const DoctorPage = ({ userType }) => {
     }
 
     return (
-        <div>
+        <div className="container justify-content-center align-items-center">
             <form onSubmit={handleSubmit}>
-                <h3>Patient Id: </h3> <input type="text" name="patient_id" onChange={handleChange} />
-                <button type="submit">Lookup</button>
+                <div className="titleP">
+                    <img src= {pInfo} alt = "infoPatients" className="ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                    <h1 style={{fontSize: '35px', marginTop: '-5%', fontFamily: 'Abril Fatface', fontWeight: '800'}}>Patient Id: </h1> <input type="text" name="patient_id" onChange={handleChange} className="inputPatient"/>
+                    <button type="submit" className="LookUp">Lookup</button>
+                </div>
             </form>
-            <div>
-                <h1>Patient Info</h1>
-                <p>{errorMsg}</p>
+            <div className="patientInfo" style={{textAlign: 'left', backgroundColor: '#A0A742'}}>
+                <h1 style={{ fontSize: '35px', fontFamily: 'Abril Fatface', fontWeight: '800'}}>Patient Info</h1>
+                <p style={{color:'red', marginBottom:'10px'}}>{errorMsg}</p>
                 {patientInfo.map((user, index) => (
                     <PatientInfo user={user} index={index} userType = {userType} loadRecords={loadRecords} medicalRecords={medicalRecords}/>
                 ))}
             </div>
+            
         </div>
     )
 }

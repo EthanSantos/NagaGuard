@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import axios from 'axios';
-import welcomeback from './pics/welcomeBack.PNG';
+import welcome from './pics/welcome.PNG';
 
 const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, userType }) => {
 
@@ -52,7 +52,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
             <div className = "container">
                 <div className = "row justify-content-center" style = {{marginTop: '8%'}}>
                     <div className = "col-md-6">
-                        <img src = {welcomeback} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                        <img src = {welcome} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
                     </div>
                 </div>
 
@@ -83,7 +83,7 @@ const Signup = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, use
             <div className = "container">
                 <div className = "row justify-content-center" style = {{marginTop: '8%'}}>
                     <div className = "col-md-6">
-                        <img src = {welcomeback} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
+                        <img src = {welcome} alt = "logo" className = "ing-fluid mb-3" style = {{maxWidth: '100%', height:'auto'}}/>
                     </div>
                 </div>
 

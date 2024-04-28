@@ -90,12 +90,12 @@ const PatientInfo = ({ user, index, userType, loadRecords, medicalRecords }) => 
             <p>Date of Birth: {user.dob}</p>
             <p>Gender: {user.gender}</p>
             <form onSubmit={handleSubmit}>
-                <input type="text" name="notes" value={record.notes} onChange={handleChange} />
-                <button type="submit">Add record</button>
+                <input type="text" name="notes" value={record.notes} onChange={handleChange} className='inputPatient2'/>
+                <button type="submit" className = "inputPatient2">Add record</button>
                 <p>{error}</p>
             </form>
             {medicalRecords.map((str, index) => (
-            <div key={index}>
+            <div key={index} style={{backgroundColor: '#97bacf', padding: '15px', borderRadius: '10px', marginBottom: '10px'}}>
                 {str.split("\n").map((line, lineIndex) => (
                     <div>
                     <p key={lineIndex}>{line}</p><br/>

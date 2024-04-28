@@ -33,7 +33,6 @@ function App() {
     return (
       <div>
         <Profile userId={userId} userType={userType} setDisplay={setDisplay} />
-        <button onClick={() => setDisplay("login")}>Logout</button>
       </div>
     )
   }
@@ -41,7 +40,9 @@ function App() {
     return (
       <div>
         <DoctorPage userType={userType} />
-        <button onClick={() => setDisplay("login")}>Logout</button>
+        <div style={{textAlign:'center'}}>
+        <button onClick={() => setDisplay("login")} className ='button1'>Logout</button>
+        </div>
       </div>
     )
   }

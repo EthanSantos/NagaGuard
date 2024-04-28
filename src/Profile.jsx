@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import myProf from './pics/myProf.png';
 
 
 const Profile = ({ userId, userType, setDisplay }) => {
@@ -39,10 +40,10 @@ const Profile = ({ userId, userType, setDisplay }) => {
             <div className = "container d-flex flex-column align-items-center justify-content-center" style = {{marginTop:'5%', textAlign: 'left'}}>
                 <div className = "content"> 
                     <div className = "title" style = {{textAlign: 'center'}}>
-                        <h3> my Profile </h3>
+                        <img src = {myProf} alt = "profile" className="ing-fluid" style = {{maxWidth: '50%', height:'auto'}}/>
                     </div>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} style = {{textAlign: 'center', justifyContent:'center'}}>
                         <h4>First Name: </h4> <input type="text" name="firstName" onChange={handleChange} className = "profileInp"/>
                         <h4>Last Name: </h4> <input type="text" name="lastName" onChange={handleChange} className = "profileInp"/>
                         <h4>Height: </h4> <input type="text" name="height" onChange={handleChange} className = "profileInp"/>
@@ -52,6 +53,8 @@ const Profile = ({ userId, userType, setDisplay }) => {
                         <div className = "submitBut">
                             <button type="submit" className="subBut">Submit</button>
                         </div>
+                            <button onClick={() => setDisplay("login")} className = 'subBut'>Logout</button>
+                        
                     </form>
                 </div>
             </div>
