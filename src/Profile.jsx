@@ -35,15 +35,24 @@ const Profile = ({ userId, userType }) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <h3>First Name: </h3> <input type="text" name="firstName" onChange={handleChange} />
-                <h3>Last Name: </h3> <input type="text" name="lastName" onChange={handleChange} />
-                <h3>Height: </h3> <input type="text" name="height" onChange={handleChange} />
-                <h3>Weight: </h3> <input type="text" name="weight" onChange={handleChange} />
-                <h3>Gender: </h3> <input type="text" name="gender" onChange={handleChange} />
-                <h3>Date of Birth: </h3> <input type="date" name="dob" onChange={handleChange} />
-                <button type="submit">Submit</button>
-            </form>
+            <div class = "container d-flex flex-column align-items-center justify-content-center" style = {{marginTop:'5%', textAlign: 'center'}}>
+                <div class = "content"> 
+                    <h5> my </h5>
+                    <h3> Profile </h3>
+
+                    <form onSubmit={handleSubmit}>
+                        <h4>First Name: </h4> <input type="text" name="firstName" onChange={handleChange} className = "profileInp"/>
+                        <h4>Last Name: </h4> <input type="text" name="lastName" onChange={handleChange} className = "profileInp"/>
+                        <h4>Height: </h4> <input type="text" name="height" onChange={handleChange} className = "profileInp"/>
+                        <h4>Weight: </h4> <input type="text" name="weight" onChange={handleChange} className = "profileInp"/>
+                        <h4>Gender: </h4> <input type="text" name="gender" onChange={handleChange} className = "profileInp"/>
+                        <h4>Date of Birth: </h4> <input type="date" name="dob" onChange={handleChange} className = "profileInp"/>
+                        <div className = "submitBut">
+                            <button type="submit" className="subBut">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
