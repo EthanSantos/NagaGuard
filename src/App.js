@@ -11,27 +11,29 @@ function App() {
   const [userId, setUserId] = useState(); // track the user id
   const [userType, setUserType] = useState("patient"); // track the user type
 
-  if (display === "home"){
-    return(
-      <Home setDisplay = {setDisplay}/>
+  if (display === "home") {
+    return (
+      <Home setDisplay={setDisplay} />
     )
   }
   else if (display === "popup") {
-    return(
-      <Popup setDisplay = {setDisplay} setUserType = {setUserType}/>
+    return (
+      <Popup setDisplay={setDisplay} setUserType={setUserType} />
     )
   }
   else if (display === "profile") {
-    return(
+    return (
       <div>
-        <Profile userId = {userId} userType = {userType}/>
+        <Profile userId={userId} userType={userType} />
+        <button onClick={() => setDisplay("login")}>Logout</button>
       </div>
     )
   }
-  else if (display === "doctor_page"){
-    return(
+  else if (display === "doctor_page") {
+    return (
       <div>
-        <DoctorPage userType={userType}/>
+        <DoctorPage userType={userType} />
+        <button onClick={() => setDisplay("login")}>Logout</button>
       </div>
     )
   }
@@ -40,7 +42,7 @@ function App() {
     console.log("login!")
     return (
       <div>
-        <LoginForm display={display} setDisplay={setDisplay} setUserId = {setUserId} userType = {userType}/>
+        <LoginForm display={display} setDisplay={setDisplay} setUserId={setUserId} userType={userType} />
       </div>
     );
   }

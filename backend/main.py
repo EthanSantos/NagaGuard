@@ -156,6 +156,57 @@ def getStats(id):
         cursor.close()
         connection.close()
         print("Connection closed")
+
+def addMedicalRecord(id, notes):
+    msg = "Error adding medical record."
+
+    try:
+        connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
+        cursor = connection.cursor(buffered=True)
+
+        query = "INSERT INTO medical_records (person_id, record) VALUES (%s, %s)"
+
+        cursor.execute(query, (id, notes))
+        msg = "Added medical record."
+
+
+    except mysql.connector.Error as error:
+        print("Error occured: ", error)
+
+    finally:
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+        print("Connection closed")
+
+    return msg
+
+def getMedicalRecords(id):
+    try:
+        connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
+        cursor = connection.cursor(buffered=True)
+
+        query = "SELECT record FROM medical_records WHERE person_id = %s"
+
+        cursor.execute(query, (id,))
+
+        rows = cursor.fetchall()
+
+        records = [row[0] for row in rows]
+        print(records)
+
+        return records
+
+    except mysql.connector.Error as error:
+        print("Error occured: ", error)
+
+    finally:
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+        print("Connection closed")
     
 
 @app.route('/Patient-login', methods=['POST'])
@@ -239,6 +290,23 @@ def get_stats():
     id = request.args.get('id', type=int)
     response = getStats(id)
     return jsonify(response), 200
+
+@app.route('/Doctor-add-record', methods=['POST'])
+def add_record():
+    data = request.json  
+    print(data)
+    id = data.get('patientId')
+    notes = data.get('notes')
+    msg = addMedicalRecord(id, notes)
+    response = {'message': msg, 'patient_id': id, 'notes': notes}
+    return jsonify(response), 200
+
+@app.route('/Doctor-get-records', methods=['GET'])
+def get_record():
+    id = request.args.get('id', type=int)
+    response = getMedicalRecords(id)
+    return jsonify(response), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True)
