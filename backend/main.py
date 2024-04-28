@@ -125,6 +125,37 @@ def updateStats(id, firstName, lastName, height, weight, gender, dob):
         print("Connection closed")
 
     return msg
+
+def getStats(id):
+    try:
+        connection = mysql.connector.connect(user=Constants.USER, password=Constants.PASSWORD, database=Constants.DATABASE)
+        cursor = connection.cursor(buffered=True)
+
+        query = "SELECT * FROM patient_info WHERE person_id = %s"
+
+        cursor.execute(query, (id,))
+        
+        rows = cursor.fetchall()
+
+        # Get column names
+        columns = [col[0] for col in cursor.description]
+
+        # Format rows into dictionary
+        stats_json = []
+        for row in rows:
+            stats_json.append(dict(zip(columns, row)))
+
+        return stats_json
+
+    except mysql.connector.Error as error:
+        print("Error occured: ", error)
+
+    finally:
+        connection.commit()
+
+        cursor.close()
+        connection.close()
+        print("Connection closed")
     
 
 @app.route('/Patient-login', methods=['POST'])
@@ -201,6 +232,12 @@ def doctor_signup():
         id = getUserId(username, "doctor_login")
 
     response = {'message': msg, 'username': username, 'password': password, 'id': id}
+    return jsonify(response), 200
+
+@app.route('/Doctor-get-stats', methods=['GET'])
+def get_stats():
+    id = request.args.get('id', type=int)
+    response = getStats(id)
     return jsonify(response), 200
 
 if __name__ == '__main__':

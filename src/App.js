@@ -31,7 +31,7 @@ function App() {
   else if (display === "doctor_page"){
     return(
       <div>
-        <DoctorPage/>
+        <DoctorPage userType={userType}/>
       </div>
     )
   }
