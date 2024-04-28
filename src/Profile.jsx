@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios';
 
 
-const Profile = ({ userId, userType }) => {
+const Profile = ({ userId, userType, setDisplay }) => {
 
     const [info, setInfo] = useState({
         id: userId,
@@ -24,6 +24,7 @@ const Profile = ({ userId, userType }) => {
         } catch (error) {
             console.error('Error:', error);
         }
+        setDisplay("patient_page")
     }
 
     const handleChange = (e) => {

@@ -32,7 +32,7 @@ const Login = ({ errorMsg, setErrorMsg, setDisplay, handleClick, setUserId, user
                     setDisplay("doctor_page")
                 }
                 else {
-                    setDisplay("profile")
+                    setDisplay("patient_page")
                 }
             }
         } catch (error) {

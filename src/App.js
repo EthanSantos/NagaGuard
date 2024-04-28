@@ -4,6 +4,8 @@ import Profile from './Profile';
 import Home from './Home';
 import Popup from './Popup';
 import DoctorPage from './DoctorPage';
+import PatientPage from './PatientPage';
+import PatientRecords from './PatientRecords';
 
 function App() {
 
@@ -21,10 +23,17 @@ function App() {
       <Popup setDisplay={setDisplay} setUserType={setUserType} />
     )
   }
+  else if (display === "patient_page") {
+    return (
+      <div>
+        <PatientPage setDisplay={setDisplay} userId={userId} />
+      </div>
+    )
+  }
   else if (display === "profile") {
     return (
       <div>
-        <Profile userId={userId} userType={userType} />
+        <Profile userId={userId} userType={userType} setDisplay={setDisplay} />
         <button onClick={() => setDisplay("login")}>Logout</button>
       </div>
     )
@@ -34,6 +43,13 @@ function App() {
       <div>
         <DoctorPage userType={userType} />
         <button onClick={() => setDisplay("login")}>Logout</button>
+      </div>
+    )
+  }
+  else if (display === "records") {
+    return (
+      <div>
+        <PatientRecords setDisplay={setDisplay} userId={userId}/>
       </div>
     )
   }

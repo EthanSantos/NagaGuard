@@ -304,6 +304,7 @@ def add_record():
 @app.route('/Doctor-get-records', methods=['GET'])
 def get_record():
     id = request.args.get('id', type=int)
+    print(id)
     response = getMedicalRecords(id)
     return jsonify(response), 200
 
