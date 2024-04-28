@@ -7,8 +7,7 @@ import DoctorPage from './DoctorPage';
 import PatientPage from './PatientPage';
 import PatientRecords from './PatientRecords';
 
-function App() {
-
+function App() {  
   const [display, setDisplay] = useState("home"); // state to track what to display
   const [userId, setUserId] = useState(); // track the user id
   const [userType, setUserType] = useState("patient"); // track the user type
@@ -62,7 +61,6 @@ function App() {
       </div>
     );
   }
-
 }
 
 export default App;
