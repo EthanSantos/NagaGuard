@@ -1,16 +1,23 @@
+/* home file */
 .button {
-    background-color: #8B9467;
+    background-color: #A0A742;
     color: #FFF;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #A0A742;
     padding: 10px 20px;
     cursor: pointer;
 }
-
 .button:hover{
     background-color: #BBCF9B;
+    border-color: #BBCF9B;
 }
 
+/* popup file */
+.button-container button:hover{
+    background-color: #C7DBE2;
+}
+
+/* login file */
 .button1 {
     background-color: #33576E;
     color: #FFF;
