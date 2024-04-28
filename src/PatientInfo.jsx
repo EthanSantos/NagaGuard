@@ -58,7 +58,7 @@ const PatientInfo = ({ user, index, userType, loadRecords, medicalRecords }) => 
             const dataFormatted = Object.entries(parsedData)
                 // .map(([key, value]) => `\n\n\n- Medical Code: ${key} Description: ${value}`)
                 
-                    .map(([key, value]) => `\n- Medical Code: ${key}  Description: ${value}`);
+                    .map(([key, value]) => `\n- Medical Code: ${key}\n Description: ${value}`);
                 
                 // .replace(/\n/g, '<br>');
                 
