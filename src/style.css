@@ -68,6 +68,7 @@
 
 .fontStyle h3{
     font-size: 30px;
+    font-weight: 800;
 }
 
 .fontStyle h2{
@@ -159,4 +160,61 @@
 .subBut:hover{
     background-color: #404c2d;
     color: #FFF;
+}
+ 
+/* Doctor Page */
+.lookUp{
+    margin-left: 10px;
+    height: auto;
+    border: none;
+    border-radius: 10px;
+    background-color: #A0A742;
+    padding: 10px 20px 10px 20px;
+    color: #FFFF;
+}
+
+.lookUp:hover{
+    background-color: #404c2d;
+}
+
+.patient-container{
+    background-color: #6290ac;
+}
+
+/* Patient Page */
+/* .pPage{
+    align-items: center;
+    justify-content: center;
+    background-color: #BBCF9B;
+    padding: 20px 20px 20px 20px;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+} */
+
+.title h1{
+    font-family: "Abril Fatface", serif;
+    font-weight: bold;
+    font-style: normal;
+    padding-top: 50px;
+}
+
+.navBut{
+    border: none; 
+    color:#6290ac;
+    background-color: #C7DBE2;
+    width: 150px;
+    margin: 10px 20px 10px 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    font-family: "Mulish", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    box-shadow: 7px 5px 2px black;
+}
+
+.navBut:hover{
+    color:#404c2d;
+    background-color: #A0A742;
 }
