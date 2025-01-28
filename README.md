@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# NagaGuard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 💡 Inspiration  
+Local clinics and hospitals often allocate nearly 50% of their resources and several hours daily to manually managing patient data and transcribing medical records. This inefficiency inspired **NagaGuard**, a solution aimed at reducing data management time from hours to mere seconds.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 💥 What It Does  
+NagaGuard leverages the power of AI to transcribe medical records into clinical codes with high accuracy, providing:  
+- **Automated transcription**: Transcribes medical records into clinical codes seamlessly.  
+- **Readable clinical notes**: Instantly presents patients with concise, understandable clinical summaries.  
+- **CRUD Operations**: Enables clinics to **Create**, **Read**, **Update**, and **Delete** medical records and clinical codes with ease.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ How We Built It  
+- **Frontend**: Developed using **ReactJS**, styled with **Bootstrap** and **CSS** for a clean and responsive user interface.  
+- **AI Integration**: Incorporated **Gemini AI** to transcribe medical records into clinical codes.  
+- **Backend**: Built with **Flask (Python)** to manage data processing, API routing, and CRUD functionality.  
+- **Database**: Utilized **MySQL** for storing patient and doctor information, ensuring data consistency and scalability.  
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧗‍♀️ Challenges We Ran Into  
+1. Setting up the **MySQL database** was initially tedious and required efficient query structuring.  
+2. Formatting medical records into sections compatible with Gemini AI for transcription posed a unique challenge.  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🏆 Accomplishments  
+- **Clinical Transcription**: Successfully automated the process of transcribing records into clinical codes with **ChatGPT** integration.  
+- **Efficient Data Management**: Reduced data processing time from hours to seconds.  
+- **Database Expertise**: Implemented robust **CRUD operations** for managing patient and doctor data.  
+- **Rapid Development**: Set up a fully functional MySQL database in under six hours.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💭 What's Next for NagaGuard  
+1. **AI Medical Assistant**: Develop an on-demand assistant to provide patient-side insights in real time.  
+2. **Clinical Partnerships**: Collaborate with clinics and hospitals to expedite clinical coding and streamline data management processes further.  
+3. **Enhanced CRUD Functionality**: Expand the CRUD operations to support more advanced queries and improve user access controls.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🏅 Hackathon Recognition  
+**NagaGuard** was developed during **UC Riverside's BearHacks**, where it won the **Best Startup** award for addressing critical inefficiencies in the healthcare industry.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With  
+- **ReactJS**  
+- **Bootstrap**  
+- **CSS**  
+- **Flask (Python)**  
+- **MySQL**  
+- **Gemini AI**  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+--- 
